@@ -26,6 +26,7 @@ export const putDb = async (content) => {
   // console.error('putDb not implemented');
 
 // Add logic for a method that gets all the content from the database
+// Im not sure if the return result (an array of objects) is working here as is passed to the editor js
 export const getDb = async () => {
   console.log('GET all from database');
   const jateDb = await openDB('jate', 1);

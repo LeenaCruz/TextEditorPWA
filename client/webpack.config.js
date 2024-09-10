@@ -11,7 +11,8 @@ module.exports = () => {
     mode: 'development',
     entry: {
       main: './src/js/index.js',
-      install: './src/js/install.js'
+      install: './src/js/install.js',
+      header: './src/js/header.js'
     },
     output: {
       filename: '[name].bundle.js',
@@ -24,13 +25,16 @@ module.exports = () => {
       }),
       new InjectManifest({
         swSrc: './src-sw.js',
-        swDest: './src-sw.js',
+        swDest: 'src-sw.js',
       }),
       new WebpackPwaManifest({
+        fingerprints: false,
+        inject: true,
         name: 'JATE Text Editor', 
         short_name: 'JATE',
         description: 'JATE: Awesome Text Editor',
         background_color: '#800080',
+        start_url: './',
         publicPath: './',
         icons:[
           {src: path.resolve('src/images/logo.png'),
