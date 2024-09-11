@@ -38,5 +38,5 @@ console.log('result.value', result);
 return result;
 } 
 
-
+  
 initdb();

@@ -20,52 +20,17 @@ const pageCache = new CacheFirst({
 });
 
 warmStrategyCache({
-  urls: ['/index.html', '/'],
+  urls: ['/index.html','/'],
   strategy: pageCache,
 });
 
-//Work on the offline 
+
 offlineFallback({ 
-  urls: ['/offline.html'],
-  strategy: pageCache,
+  urls: ['/offline.html']
 });
 
 
 registerRoute(({ request }) => request.mode === 'navigate', pageCache);
-
-//Implement asset caching
-
-// registerRoute(
-//   ({request}) => {
-//     // check mini project request
-//     return (   request.destination === 'style' || request.destination === 'script'
-//     );
-//   },
-//   new StaleWhileRevalidate({
-//     cacheName: 'static-resources',
-//     plugins: [
-//       new CacheableResponsePlugin({
-//         statuses: [0, 200],
-//       }),
-//     ],
-//   })
-// );
-
-// registerRoute(
-//   ({ request }) => request.destination === 'image',
-//   new CacheFirst({
-//     cacheName: 'my-image-cache',
-//     plugins: [
-//       new CacheableResponsePlugin({
-//         statuses: [0, 200],
-//       }),
-//       new ExpirationPlugin({
-//         maxEntries: 60,
-//         maxAgeSeconds: 30 * 24 * 60 * 60, // 30 Days
-//       }),
-//     ],
-//   })
-// );
 
 // Set up asset cache
 registerRoute(
