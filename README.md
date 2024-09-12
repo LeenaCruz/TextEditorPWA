@@ -1,4 +1,4 @@
-# TextEditorPWA
+# J.A.T.E.
 A simple text editor that runs in the browser, it can be used offline too. 
 
 # Installation 
